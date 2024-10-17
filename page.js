@@ -36,13 +36,6 @@ function createBox(x, y) {
     boxes.push(box);
 }
 
-// Create boxes on click
-canvas.addEventListener('click', (event) => {
-    const x = event.clientX;
-    const y = event.clientY;
-    createBox(x, y);
-});
-
 // Handle device orientation
 window.addEventListener('deviceorientation', (event) => {
     const gravity = event.gamma; // X-axis
@@ -86,3 +79,8 @@ var roof = Bodies.rectangle(canvas.width / 2, -30, canvas.width, 60, {
 World.add(engine.world, [ground, roof, wallLeft, wallRight]);
 
 resizeCanvas()
+
+for (let index = 0; index < 4; index++) {
+    createBox(Math.random()*(canvas.width-112),Math.random()*(canvas.height-112))
+}
+
